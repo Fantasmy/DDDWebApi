@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AlumnoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Vueling.Application.Dto\Vueling.Application.Dto.csproj">
@@ -60,6 +60,15 @@
       <Project>{8334c6b6-5a7b-4607-b936-aa343bb0124c}</Project>
       <Name>Vueling.Domain.Model.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Vueling.Infrastructure.Repository.Contracts\Vueling.Infrastructure.Repository.Contracts.csproj">
+      <Project>{9d47dcaf-7b75-407f-8ec2-b23b7f8ca30b}</Project>
+      <Name>Vueling.Infrastructure.Repository.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vueling.Infrastructure.Repository\Vueling.Infrastructure.Repository.csproj">
+      <Project>{48a0f7fa-0c7e-4385-9bb5-436cd97c53f2}</Project>
+      <Name>Vueling.Infrastructure.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

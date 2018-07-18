@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Vueling.Application.Services.Contracts
 {
-    public class Class1
+    public interface IService<T>
     {
+        T Add(T model); 
+        T Update(T model);
+        List<T> GetAll();
+        T GetById(int id);
+        int Remove(int id);
     }
 }

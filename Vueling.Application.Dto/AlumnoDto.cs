@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vueling.Domain.Model.Entities
+namespace Vueling.Application.Dto
 {
-    public class AlumnoEntity
+    public class AlumnoDto
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Dni { get; set; }
+
         public DateTime FechaNacimiento { get; set; }
-        public int Edad { get; set; }
+
     }
 }
+    
