@@ -68,5 +68,14 @@ namespace Vueling.Infrastructure.Repository {
                 return ResourceManager.GetString("ErAct", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exception error.
+        /// </summary>
+        internal static string ErExep {
+            get {
+                return ResourceManager.GetString("ErExep", resourceCulture);
+            }
+        }
     }
 }

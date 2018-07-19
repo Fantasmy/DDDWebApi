@@ -76,6 +76,29 @@ namespace Vueling.Application.Services.Service
 
         public AlumnoDto GetById(int id)
         {
+            //AlumnoEntity alumnoEntity = null;
+
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<AlumnoDto, AlumnoEntity>());
+            //IMapper iMapper = config.CreateMapper();
+
+            //alumnoEntity = iMapper.Map<AlumnoDto, AlumnoEntity>(alumnoDto); // envia objeto alumnoDto para hacer la conversión
+            //try
+            //{
+            //    AlumnoRepository alumno = AlumnoDto.Find(id);  // recuperara alumno por id
+            //    if (alumno == null)
+            //    {
+            //        return NotFound(); // trabajamos con un enum que es results, y ahi hay un valor NotFound que se devuelve por http.
+            //    }
+            //}
+            //catch (VuelingException ex)
+            //{
+            //    log.Error(Resource2.AnEx);
+            //    //log de la excepción.
+            //    throw;
+            //}
+
+            //return Ok(alumno);
+
             throw new NotImplementedException();
         }
 

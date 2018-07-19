@@ -38,11 +38,9 @@ namespace Vueling.Facade.Api.Controllers
         }
 
         // GET: api/AlumnoApi/5
-        public IHttpActionResult Get(int id)
+        public AlumnoDto Get(int id)
         {
-            throw new
-                NotImplementedException
-                (Resource1.NotImp);
+            return alumnoService.GetById(id);
             // ok alumno
         }
 
@@ -74,20 +72,21 @@ namespace Vueling.Facade.Api.Controllers
         }
 
         // PUT: api/AlumnoApi/5
-        public IHttpActionResult Put(int id, AlumnoDto alumnoDto)
+        public IHttpActionResult Put(int id, AlumnoDto model)
         {
-            throw new
-              NotImplementedException
-              (Resource1.NotImp);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            alumnoService.Update(model);
+            return StatusCode(HttpStatusCode.NoContent);
             //devuelve status code no content
         }
 
         // DELETE: api/AlumnoApi/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            throw new
-              NotImplementedException
-              (Resource1.NotImp);
+            return Ok(alumnoService.Remove(id));
             // ok and alumno or id
         }
     }

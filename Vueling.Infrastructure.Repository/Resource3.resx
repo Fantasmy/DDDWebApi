@@ -120,4 +120,7 @@
   <data name="ErAct" xml:space="preserve">
     <value>Error en la actualización</value>
   </data>
+  <data name="ErExep" xml:space="preserve">
+    <value>Exception error</value>
+  </data>
 </root>

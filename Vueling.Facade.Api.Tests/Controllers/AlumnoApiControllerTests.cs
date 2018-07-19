@@ -19,13 +19,21 @@ namespace Vueling.Facade.Api.Controllers.Tests
         [TestMethod()]
         public void GetTest()
         {
-            Assert.Fail();
+            AlumnoApiController controller = new AlumnoApiController();
+            AlumnoDto alumnoDto = new AlumnoDto();
+            IEnumerable<AlumnoDto> alumnos = controller.Get();
+            Assert.IsTrue(alumnos.Count<AlumnoDto>() > 0);
         }
 
         [TestMethod()]
         public void GetTest1()
         {
-            Assert.Fail();
+            AlumnoApiController controller = new AlumnoApiController();
+            //AlumnoDto alumnoDto = new AlumnoDto();
+            AlumnoDto alumnoDto = controller.Get(1);
+
+            Assert.IsNotNull(alumnoDto);
+            Assert.AreEqual(1, alumnoDto.Id);
         }
 
         [TestMethod()]

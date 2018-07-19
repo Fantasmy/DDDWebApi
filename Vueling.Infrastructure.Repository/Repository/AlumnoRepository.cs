@@ -87,7 +87,7 @@ namespace Vueling.Infrastructure.Repository.Repository
             catch (DbUpdateConcurrencyException ex)
             {
                 //You Must LOG
-                throw new VuelingException("mensaje de error que debe estar en el fichero de recueros", ex);
+                throw new VuelingException(Resource3.ErExep, ex);
             }
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Alumno, AlumnoEntity>());
             IMapper iMapper = config.CreateMapper();
