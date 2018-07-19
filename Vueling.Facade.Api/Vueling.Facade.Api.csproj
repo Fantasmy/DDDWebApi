@@ -303,6 +303,10 @@
       <Project>{c14e188a-2b5e-439f-bba6-673f51f75b04}</Project>
       <Name>Vueling.Common.Layer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Vueling.Infrastructure.Repository\Vueling.Infrastructure.Repository.csproj">
+      <Project>{48A0F7FA-0C7E-4385-9BB5-436CD97C53F2}</Project>
+      <Name>Vueling.Infrastructure.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource1.resx">

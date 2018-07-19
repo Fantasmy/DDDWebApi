@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
@@ -17,44 +18,88 @@ namespace Vueling.Infrastructure.Repository.Repository
     {
         private static readonly log4net.ILog log = LogHelper.GetLogger();
 
+        private readonly CovalcoEntities db;
+
+        public AlumnoRepository() : this(new CovalcoEntities())
+        {
+
+        }
+
+        public AlumnoRepository(
+            CovalcoEntities covalcoEntities)
+        {
+            this.db = covalcoEntities;
+        }
 
         public AlumnoEntity Add(AlumnoEntity model)
         {
-            //private CovalcoEntities db = new CovalcoEntities();
-
-            //db.Alumno.Add(alumno);  
-            //db.SaveChanges();
+            Alumno alumno = null;
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<AlumnoEntity, Alumno>());
+            IMapper iMapper = config.CreateMapper();
+            alumno = iMapper.Map<AlumnoEntity, Alumno>(model);
 
             try
             {
-                throw new NotImplementedException();
+                db.Alumno.Add(alumno);
+                db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                // YOU MUST LOG
+                //You Must LOG
                 throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (DbUpdateException ex)
             {
-                // ex.Message o ex.Data o ex.StackTrace; 
-                // YOU MUST LOG
+                //You Must LOG
                 throw new VuelingException(Resource3.ErAct, ex);
             }
-            catch (DbEntityValidationException ex) // ex.message
+            catch (DbEntityValidationException ex)
             {
-                // YOU MUST LOG
+                //You Must LOG
                 throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (NotSupportedException ex)
             {
-                // YOU MUST LOG
+                //You Must LOG
                 throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (ObjectDisposedException ex)
             {
-                // YOU MUST LOG
+                //You Must LOG
                 throw new VuelingException(Resource3.ErAct, ex);
             }
+            catch (InvalidOperationException ex)
+            {
+                //You Must LOG
+                throw new VuelingException(Resource3.ErAct, ex);
+            }
+            return model;
+        }
+
+        public List<AlumnoEntity> GetAll()
+        {
+            List<AlumnoEntity> alumnoEntity;
+            IQueryable<Alumno> listaAlumno;
+            try
+            {
+                listaAlumno = db.Alumno;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                //You Must LOG
+                throw new VuelingException("mensaje de error que debe estar en el fichero de recueros", ex);
+            }
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Alumno, AlumnoEntity>());
+            IMapper iMapper = config.CreateMapper();
+
+            alumnoEntity = iMapper.Map<List<AlumnoEntity>>(listaAlumno);
+
+            return alumnoEntity;
+        }
+
+        public AlumnoEntity GetById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public int Remove(int id)
@@ -62,20 +107,10 @@ namespace Vueling.Infrastructure.Repository.Repository
             throw new NotImplementedException();
         }
 
-
         public AlumnoEntity Update(AlumnoEntity model)
         {
             throw new NotImplementedException();
         }
 
-        List<AlumnoEntity> IRepository<AlumnoEntity>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        AlumnoEntity IRepository<AlumnoEntity>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

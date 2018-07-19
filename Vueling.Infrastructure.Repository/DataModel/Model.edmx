@@ -13,6 +13,8 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Dni" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Edad" Type="int" />
         </EntityType>
         <EntityContainer Name="CovalcoModelStoreContainer">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
@@ -30,6 +32,8 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Dni" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Edad" Type="Int32" />
         </EntityType>
         <EntityContainer Name="CovalcoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" />
@@ -47,6 +51,8 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
                 <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

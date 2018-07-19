@@ -59,5 +59,14 @@ namespace Vueling.Application.Services {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There was an exception.
+        /// </summary>
+        internal static string AnEx {
+            get {
+                return ResourceManager.GetString("AnEx", resourceCulture);
+            }
+        }
     }
 }

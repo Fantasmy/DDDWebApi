@@ -33,7 +33,7 @@ namespace Vueling.Application.Services.Service
         /// <summary>
         /// Adds new alumno.
         /// </summary>
-        /// <returns>This alumnoDto returns no id, because i will do a reverse map from alumnoDto to alumno entity</returns>
+        /// <returns>This alumnoDto returns no id, because we will do a reverse map from alumnoDto to alumno entity</returns>
         public AlumnoDto Add(AlumnoDto alumnoDto)
         {
             //AlumnoEntity alumnoEntity = new AlumnoEntity();
@@ -54,7 +54,7 @@ namespace Vueling.Application.Services.Service
             }
             catch (VuelingException ex)
             {
-                log.Error("There was an exception");
+                log.Error(Resource2.AnEx);
                 //log de la excepción.
                 throw;
             }
@@ -64,7 +64,14 @@ namespace Vueling.Application.Services.Service
 
         public List<AlumnoDto> GetAll()
         {
-            throw new NotImplementedException();
+            List<AlumnoDto> alumnoDtos;
+            List<AlumnoEntity> alumnoRepositoryLlegada;
+            alumnoRepositoryLlegada = alumnoRepository.GetAll();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<AlumnoDto, AlumnoEntity>());
+            IMapper iMapper = config.CreateMapper();
+
+            alumnoDtos = iMapper.Map<List<AlumnoDto>>(alumnoRepositoryLlegada);
+            return alumnoDtos;
         }
 
         public AlumnoDto GetById(int id)

@@ -10,6 +10,7 @@ using Vueling.Application.Services.Contracts;
 using Vueling.Application.Services.Service;
 using Vueling.Common.Layer;
 using System.Resources;
+using Vueling.Infrastructure.Repository.DataModel;
 
 namespace Vueling.Facade.Api.Controllers
 {
@@ -17,6 +18,8 @@ namespace Vueling.Facade.Api.Controllers
     public class AlumnoApiController : ApiController
     {
         private readonly IService<AlumnoDto> alumnoService;
+
+        private CovalcoEntities db = new CovalcoEntities();
 
         public AlumnoApiController() : this(new AlumnoService())
         {
@@ -28,13 +31,10 @@ namespace Vueling.Facade.Api.Controllers
             this.alumnoService = alumnoService;
         }
 
-            // GET: api/AlumnoApi
-            public IHttpActionResult Get()
+        // GET: api/AlumnoApi
+        public IEnumerable<AlumnoDto> Get()
         {
-            throw new
-                NotImplementedException
-                (Resource1.NotImp);
-            // IQuareiable<ALumno>
+            return alumnoService.GetAll();
         }
 
         // GET: api/AlumnoApi/5

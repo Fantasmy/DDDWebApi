@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="32495cad0f284ef7af410336c3c9c93f" Name="Diagram1">
+      <Diagram DiagramId="dd02c3d6426e4232b37ff0a74be7d0bd" Name="Diagram1">
         <EntityTypeShape EntityType="CovalcoModel.Alumno" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
