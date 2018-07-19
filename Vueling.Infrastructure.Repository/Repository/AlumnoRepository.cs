@@ -9,14 +9,22 @@ using Vueling.Common.Layer;
 using Vueling.Domain.Model.Entities;
 using Vueling.Infrastructure.Repository.Contracts;
 using Vueling.Infrastructure.Repository.DataModel;
+using Vueling.Utils.LogHelper;
 
 namespace Vueling.Infrastructure.Repository.Repository
 {
     public class AlumnoRepository : IRepository<AlumnoEntity>
     {
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
+
 
         public AlumnoEntity Add(AlumnoEntity model)
         {
+            //private CovalcoEntities db = new CovalcoEntities();
+
+            //db.Alumno.Add(alumno);  
+            //db.SaveChanges();
+
             try
             {
                 throw new NotImplementedException();
