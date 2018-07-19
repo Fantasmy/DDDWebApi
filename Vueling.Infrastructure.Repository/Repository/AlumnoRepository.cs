@@ -32,28 +32,28 @@ namespace Vueling.Infrastructure.Repository.Repository
             catch (DbUpdateConcurrencyException ex)
             {
                 // YOU MUST LOG
-                throw new VuelingException("Error en la actualización", ex);
+                throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (DbUpdateException ex)
             {
                 // ex.Message o ex.Data o ex.StackTrace; 
                 // YOU MUST LOG
-                throw new VuelingException("Error en la actualización", ex);
+                throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (DbEntityValidationException ex) // ex.message
             {
                 // YOU MUST LOG
-                throw new VuelingException("Error en la actualización", ex);
+                throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (NotSupportedException ex)
             {
                 // YOU MUST LOG
-                throw new VuelingException("Error en la actualización", ex);
+                throw new VuelingException(Resource3.ErAct, ex);
             }
             catch (ObjectDisposedException ex)
             {
                 // YOU MUST LOG
-                throw new VuelingException("Error en la actualización", ex);
+                throw new VuelingException(Resource3.ErAct, ex);
             }
         }
 
